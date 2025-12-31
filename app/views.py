@@ -13,15 +13,13 @@ class SchoolDataAPI(APIView):
 
 
 class Userform(APIView):
-    
-  
-    
     def post(self, request):
         userserlizer = userser(data=request.data)
         if userserlizer.is_valid():
             userserlizer.save()
             return Response({"message": "User created successfully!"}, status=201)
         return Response(userserlizer.errors, status=400)
+
 
 class userdata(APIView):
     def get(self, request):
