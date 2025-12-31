@@ -2,7 +2,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from .serializers import userser
+from .serializers import *
 # Create your views here.
 
 # demo api 
@@ -40,4 +40,21 @@ class userdata(APIView):
         users = User.objects.all()
         userserlizer = userser(users, many=True)
         return Response(userserlizer.data)
-
+    
+from .models import STUDENT
+class studentform(APIView):
+    def get (self, request):
+        students = STUDENT.objects.all()
+        studserlizer = studentser(students, many=True)
+        return Response(studserlizer.data)
+    
+    def post(self, request):
+        studserlizer = studentser(data=request.data)
+        if studserlizer.is_valid():
+            studserlizer.save()
+            return Response({"message": "Student created successfully!"}, status=201)
+        return Response(studserlizer.errors, status=400)
+    
+    
+    
+    

@@ -19,4 +19,9 @@ class userser(serializers.ModelSerializer):
         return user
 
 
+class studentser(serializers.ModelSerializer):  
+    class Meta:
+        from .models import STUDENT
+        model = STUDENT
+        fields = '__all__'
 
