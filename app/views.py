@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 import logging
 from .serializers import *
+from django.contrib.auth import authenticate
+from rest_framework_simplejwt.tokens import RefreshToken
 # from rest_framework.permissions import IsAdminUser
 
 # Create your views here.
@@ -29,6 +31,34 @@ class SchoolDataAPI(APIView):
 #             )
 #         return Response(serializer.errors, status=400)
 
+# 
+class Userlogin(APIView):
+    def post(self, request):
+        serializer = LoginSerializer(data=request.data)
+
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=400)
+
+        username = serializer.validated_data['username']
+        password = serializer.validated_data['password']
+
+        user = authenticate(username=username, password=password)
+
+        if user is None:
+            return Response(
+                {"error": "Invalid username or password"},
+                status=401
+            )
+
+        refresh = RefreshToken.for_user(user)
+
+        return Response({
+            "message": "User logged in successfully",
+            "access": str(refresh.access_token),
+            "refresh": str(refresh)
+        }, status=200)
+
+# 
 class Userform(APIView):
     def post(self, request):
         userserlizer = userser(data=request.data)

@@ -425,3 +425,23 @@ Watching for file changes with StatReloader
 /Users/gautamsinh/Desktop/django_project_relaways/pro/app/serializers.py changed, reloading.
 Watching for file changes with StatReloader
 "GET /studentform/ HTTP/1.1" 200 383
+Watching for file changes with StatReloader
+/Users/gautamsinh/Desktop/django_project_relaways/pro/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/gautamsinh/Desktop/django_project_relaways/pro/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/gautamsinh/Desktop/django_project_relaways/pro/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/gautamsinh/Desktop/django_project_relaways/pro/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/gautamsinh/Desktop/django_project_relaways/pro/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/gautamsinh/Desktop/django_project_relaways/pro/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/gautamsinh/Desktop/django_project_relaways/pro/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /userlogin/ HTTP/1.1" 200 529
+/Users/gautamsinh/Desktop/django_project_relaways/pro/pro/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Forbidden: /studentform/
+"GET /studentform/ HTTP/1.1" 403 58

@@ -26,3 +26,6 @@ class studentser(serializers.ModelSerializer):
         model = STUDENT
         fields = '__all__'
         # read_only_fields = ['user']
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField()
+    password = serializers.CharField(write_only=True)
