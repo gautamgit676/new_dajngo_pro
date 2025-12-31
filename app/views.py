@@ -16,11 +16,7 @@ class Userform(APIView):
         username = request.data.get('username')
         password = request.data.get('password')
         email = request.data.get('email')
-        try:
-            User.objects.get(username=username)
-            return Response({"error": "Username already exists."}, status=400)
-        except User.DoesNotExist:
-            pass
+       
         # Create a new user
         user = User.objects.create_user(username=username, password=password, email=email)
         user.save()
