@@ -2,6 +2,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth.models import User
+from .serializers import userser
 # Create your views here.
 
 # demo api 
@@ -12,19 +13,19 @@ class SchoolDataAPI(APIView):
 
 
 class Userform(APIView):
+    
+  
+    
     def post(self, request):
-        username = request.data.get('username')
-        password = request.data.get('password')
-        email = request.data.get('email')
+        userserlizer = userser(data=request.data)
+        if userserlizer.is_valid():
+            userserlizer.save()
+            return Response({"message": "User created successfully!"}, status=201)
+        return Response(userserlizer.errors, status=400)
 
-        if not username:
-            return Response({"error": "Username is required"}, status=400)
-
-        user = User.objects.create_user(
-            username=username,
-            password=password,
-            email=email
-        )
-
-        return Response({"message": "User created successfully!"}, status=201)
+class userdata(APIView):
+    def get(self, request):
+        users = User.objects.all()
+        userserlizer = userser(users, many=True)
+        return Response(userserlizer.data)
 
