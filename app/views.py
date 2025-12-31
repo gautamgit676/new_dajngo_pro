@@ -16,11 +16,15 @@ class Userform(APIView):
         username = request.data.get('username')
         password = request.data.get('password')
         email = request.data.get('email')
-       
-        # Create a new user
-        user = User.objects.create_user(username=username, password=password, email=email)
-        user.save()
 
-        return Response({"message": "User created successfully!"})
+        if not username:
+            return Response({"error": "Username is required"}, status=400)
 
+        user = User.objects.create_user(
+            username=username,
+            password=password,
+            email=email
+        )
+
+        return Response({"message": "User created successfully!"}, status=201)
 
