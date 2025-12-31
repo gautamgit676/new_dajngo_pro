@@ -29,7 +29,8 @@ SECRET_KEY = 'django-insecure-nijx$l^--e#*2f=pm)rc3%t6ls&$c!3owll76^fx877=y5qnt)
 DEBUG = True
 
 # ALLOWED_HOSTS = []https://djangorailway-production-2e1d.up.railway.app/
-ALLOWED_HOSTS = ["djangorailway-production-2e1d.up.railway.app"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "djangorailway-production-2e1d.up.railway.app"]
+# ALLOWED_HOSTS = ["djangorailway-production-2e1d.up.railway.app"]
 CSRF_TRUSTED_ORIGINS = ['https://djangorailway-production-2e1d.up.railway.app']
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
