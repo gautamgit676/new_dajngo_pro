@@ -20,8 +20,9 @@ class userser(serializers.ModelSerializer):
 
 
 class studentser(serializers.ModelSerializer):  
+    user = serializers.ReadOnlyField(source='user.username')
     class Meta:
         from .models import STUDENT
         model = STUDENT
         fields = '__all__'
-
+        # read_only_fields = ['user']
