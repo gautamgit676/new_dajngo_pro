@@ -29,6 +29,10 @@ class Userform(APIView):
             return Response({"message": "User created successfully!"}, status=201)
         return Response(userserlizer.errors, status=400)
 
+    def get(self, request):
+        users = User.objects.all()
+        userserlizer = userser(users, many=True)
+        return Response(userserlizer.data)
 
 
 
