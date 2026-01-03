@@ -21,22 +21,17 @@ class SchoolDataAPI(APIView):
         return Response({"message": "Hello, this is a demo API response!", "data": data})
 
 
+class Userform(APIView):
+    def post(self, request):
+        userserlizer = userser(data=request.data)
+        if userserlizer.is_valid():
+            userserlizer.save()
+            return Response({"message": "User created successfully!"}, status=201)
+        return Response(userserlizer.errors, status=400)
 
 
-# class UserCreateAPIView(APIView):
-#     permission_classes = [AllowAny]
 
-#     def post(self, request):
-#         serializer = userser(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(
-#                 {"message": "User created successfully"},
-#                 status=201
-#             )
-#         return Response(serializer.errors, status=400)
 
-# 
 class Userlogin(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
@@ -64,14 +59,6 @@ class Userlogin(APIView):
         }, status=200)
 
 # 
-class Userform(APIView):
-    def post(self, request):
-        userserlizer = userser(data=request.data)
-        if userserlizer.is_valid():
-            userserlizer.save()
-            return Response({"message": "User created successfully!"}, status=201)
-        return Response(userserlizer.errors, status=400)
-
 
 
 class userdata(APIView):
