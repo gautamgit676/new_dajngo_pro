@@ -34,7 +34,11 @@ class Userform(APIView):
         userserlizer = userser(users, many=True)
         return Response(userserlizer.data)
 
-
+class userdata(APIView):
+    def get(self, request):
+        users = User.objects.all()
+        userserlizer = userser(users, many=True)
+        return Response(userserlizer.data)
 
 class Userlogin(APIView):
     def post(self, request):
@@ -65,11 +69,7 @@ class Userlogin(APIView):
 # 
 
 
-class userdata(APIView):
-    def get(self, request):
-        users = User.objects.all()
-        userserlizer = userser(users, many=True)
-        return Response(userserlizer.data)
+
     
 from .models import STUDENT
 
