@@ -6,11 +6,15 @@ import logging
 from .serializers import *
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.decorators import api_view, permission_classes
+
+from rest_framework.permissions import AllowAny
 # from rest_framework.permissions import IsAdminUser
 
 # Create your views here.
 
 # demo api 
+@permission_classes([AllowAny])
 class SchoolDataAPI(APIView):
     def get(self, request):
         data = "heelo i am backend developer heeee "
