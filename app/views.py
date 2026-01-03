@@ -13,7 +13,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 # demo api 
 class SchoolDataAPI(APIView):
     def get(self, request):
-        return Response({"message": "Hello, this is a demo API response!"})
+        data = "heelo i am backend developer heeee "
+        return Response({"message": "Hello, this is a demo API response!", "data": data})
 
 
 
