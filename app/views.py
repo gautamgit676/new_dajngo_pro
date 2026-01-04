@@ -74,10 +74,10 @@ class Userlogin(APIView):
 from .models import STUDENT
 
 class studentform(APIView):
-    def get (self, request):
-        students = STUDENT.objects.all()
-        studserlizer = studentser(students, many=True)
-        return Response(studserlizer.data)
+    # def get (self, request):
+        # students = STUDENT.objects.all()
+        # studserlizer = studentser(students, many=True)
+        # return Response(studserlizer.data)
     
     def post(self, request):
         studserlizer = studentser(data=request.data)
