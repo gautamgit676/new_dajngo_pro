@@ -96,7 +96,7 @@ SESSION_COOKIE_SECURE = True
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-import os 
+import os
 import dj_database_url
 
 if os.environ.get("DATABASE_URL"):
