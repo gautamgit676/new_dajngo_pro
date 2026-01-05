@@ -97,35 +97,36 @@ SESSION_COOKIE_SECURE = True
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 import os
-import dj_database_url
-from dotenv import load_dotenv
-load_dotenv()
 
-if os.environ.get("DATABASE_URL"):
-    DATABASES = {
-        "default": dj_database_url.config(
-            conn_max_age=600,
-            ssl_require=True,
-        )
-    }
-else:
-    DATABASES = {
-            "default": {
-                "ENGINE": "django.db.backends.sqlite3",
-                "NAME": BASE_DIR / "db.sqlite3",
-            }
-        }
+# import dj_database_url
+# from dotenv import load_dotenv
+# load_dotenv()
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': DATABASE_NAME,
-#         'USER': DATABASE_USER,
-#         'PASSWORD': DATABASE_PASSWORD,
-#         'HOST': DATABASE_HOST,
-#         'PORT': DATABASE_PORT,
+# if os.environ.get("DATABASE_URL"):
+#     DATABASES = {
+#         "default": dj_database_url.config(
+#             conn_max_age=600,
+#             ssl_require=True,
+#         )
 #     }
-# }
+# else:
+#     DATABASES = {
+#             "default": {
+#                 "ENGINE": "django.db.backends.sqlite3",
+#                 "NAME": BASE_DIR / "db.sqlite3",
+#             }
+#         }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'OYdowLZzarCYLNlGZgIUdBKMeisaDwDQ',
+        'HOST': 'trolley.proxy.rlwy.net',
+        'PORT': '38441',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
