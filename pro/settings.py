@@ -124,7 +124,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'OYdowLZzarCYLNlGZgIUdBKMeisaDwDQ',
         'HOST': 'trolley.proxy.rlwy.net',
-        'PORT': '38441',
+        'PORT': '44309',
     }
 }
 # RTHISIS NIT NDFSDNFKSJNNVKAJ
