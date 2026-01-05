@@ -127,7 +127,7 @@ DATABASES = {
         'PORT': '38441',
     }
 }
-
+# RTHISIS NIT NDFSDNFKSJNNVKAJ
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
